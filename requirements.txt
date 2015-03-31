@@ -17,7 +17,6 @@ djangocms-googlemap
 djangocms-inherit
 djangocms-link
 djangocms-picture
-djangocms-style
 djangocms-teaser
 djangocms-video
 Pillow

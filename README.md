@@ -14,19 +14,15 @@ Refer [requirements.txt](https://github.com/Robotix/robo_web/blob/master/require
 **”Code without tests is broken by design.”**
 
 ##Local Set Up:
--  Run the following commands in the terminal after a clone.  
+-  Run the following commands in the terminal after a clone.
 ```sh
 $ python manage.py syncdb
-```  
-```sh
-$ python manage.py migrate  
+$ python manage.py migrate
 ```
 After a change to the DB Schema, run the following:  
 ```sh
 $ python manage.py makemigrations <APP_NAME>
-```  
-```sh
-$ python manage.py migrate <APP_NAME>  
+$ python manage.py migrate <APP_NAME>
 ```
 
 ##Before committing
