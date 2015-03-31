@@ -10,7 +10,6 @@ djangocms_text_ckeditor
 djangocms_style
 django-reversion
 django-treebeard
-djangocms-admin-style
 djangocms-column
 djangocms-file
 djangocms-flash

@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Robotix/robo_web.svg?branch=master)](https://travis-ci.org/Robotix/robo_web)
+[![Coverage Status](https://coveralls.io/repos/Robotix/robo_web/badge.svg)](https://coveralls.io/r/Robotix/robo_web)
 #The Official repository for the next iteration of Robotix.in
 
 ##Installation Prerequisites:
