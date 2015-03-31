@@ -8,7 +8,6 @@ djangocms-admin-style
 django-classy-tags
 djangocms_text_ckeditor
 djangocms_style
-django-mptt
 django-reversion
 django-treebeard
 djangocms-admin-style
