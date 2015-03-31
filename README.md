@@ -1,7 +1,7 @@
 #The Official repository for the next iteration of Robotix.in
 
 ##Installation Prerequisites:
-Refer requirements.txt.
+Refer [requirements.txt](https://github.com/Robotix/robo_web/blob/master/requirements.txt).
 
 ##Workflow:
 **Fork the repo, create a new branch, make changes and send a pull request**
