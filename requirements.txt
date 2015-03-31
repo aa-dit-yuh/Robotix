@@ -6,4 +6,6 @@ django-mptt
 south
 djangocms-admin-style
 django-classy-tags
+djangocms_text_ckeditor
+Pillow
 pep8
