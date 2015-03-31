@@ -1,5 +1,5 @@
 import os
-gettext = lambda s: s
+
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
 Django settings for robo_web project.
@@ -131,7 +131,7 @@ INSTALLED_APPS = (
 
 LANGUAGES = (
     # Customize this
-    ('en', gettext('en')),
+    ('en', 'en'),
 )
 
 CMS_LANGUAGES = {
@@ -146,7 +146,7 @@ CMS_LANGUAGES = {
             'public': True,
             'code': 'en',
             'hide_untranslated': False,
-            'name': gettext('en'),
+            'name': 'en',
             'redirect_on_fallback': True,
         },
     ],
