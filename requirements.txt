@@ -7,5 +7,6 @@ south
 djangocms-admin-style
 django-classy-tags
 djangocms_text_ckeditor
+djangocms_style
 Pillow
 pep8
