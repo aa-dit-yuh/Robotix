@@ -14,23 +14,23 @@ Refer [requirements.txt](https://github.com/Robotix/robo_web/blob/master/require
 **”Code without tests is broken by design.”**
 
 ##Local Set Up:
--  Run the following commands in the terminal after a clone.
-```sh
-$ python manage.py syncdb
-$ python manage.py migrate
-```
-After a change to the DB Schema, run the following:  
-```sh
-$ python manage.py makemigrations <APP_NAME>
-$ python manage.py migrate <APP_NAME>
-```
+- Run the following commands in the terminal after a clone.
+  ```sh
+  $ python manage.py syncdb
+  $ python manage.py migrate
+  ```
+- After a change to the DB Schema, run the following:  
+  ```sh
+  $ python manage.py makemigrations <APP_NAME>
+  $ python manage.py migrate <APP_NAME>
+  ```
 
 ##Before committing
 - Check that your code adheres to PEP8 guidelines.
   ```sh
-  pep8 --exclude=migrations .
+  $ pep8 --exclude=migrations .
   ```
 - Check that all tests pass.
   ```sh
-  python manage.py test
+  $ python manage.py test
   ```

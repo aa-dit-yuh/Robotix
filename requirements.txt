@@ -20,4 +20,3 @@ djangocms-picture
 djangocms-teaser
 djangocms-video
 Pillow
-pep8
