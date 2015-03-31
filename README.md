@@ -1,10 +1,9 @@
 #The Official repository for the next iteration of Robotix.in
 
 ###Installation Prerequisites:
-1. Django == 1.6.10
-2. South
-3. DjangoCMS
-4. Recursive dependencies for above packages
+- Django == 1.7.7
+- DjangoCMS == 3.0.12
+- Recursive dependencies for above packages
 
 ###Workflow:
 **Fork the repo, create a new branch, make changes and send a pull request**
