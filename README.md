@@ -16,22 +16,22 @@ Refer [requirements.txt](https://github.com/Robotix/robo_web/blob/master/require
 
 ##Local Set Up:
 - Run the following commands in the terminal after a clone.
-  ```sh
+  ```bash
   $ python manage.py syncdb
   $ python manage.py migrate
   ```
 - After a change to the DB Schema, run the following:  
-  ```sh
+  ```bash
   $ python manage.py makemigrations <APP_NAME>
   $ python manage.py migrate <APP_NAME>
   ```
 
 ##Before committing
 - Check that your code adheres to PEP8 guidelines.
-  ```sh
+  ```bash
   $ pep8 --exclude=migrations .
   ```
 - Check that all tests pass.
-  ```sh
+  ```bash
   $ python manage.py test
   ```
