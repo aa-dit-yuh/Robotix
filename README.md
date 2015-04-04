@@ -6,6 +6,9 @@
 ##Installation Prerequisites:
 Refer [requirements.txt](https://github.com/Robotix/robo_web/blob/master/requirements.txt).
 
+##Plan:
+Refer [PLAN.md](https://github.com/Robotix/robo_web/blob/master/PLAN.md).
+
 ##Workflow:
 **Fork the repo, create a new branch, make changes and send a pull request**
 -  Fork the repository and request for an issue to be assigned.  
