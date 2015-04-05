@@ -18,4 +18,4 @@ djangocms-link == 1.5
 djangocms-picture == 0.1
 djangocms-teaser == 0.1
 djangocms-video == 0.1
-Pillow == 2.7.0
+Pillow == 2.8.1
