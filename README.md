@@ -3,6 +3,8 @@
 [![Coverage Status](https://coveralls.io/repos/Robotix/robo_web/badge.svg?branch=master)](https://coveralls.io/r/Robotix/robo_web?branch=master)
 #The Official repository for the next iteration of Robotix.in
 
+[![Join the chat at https://gitter.im/narayanaditya95/robo_web](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/narayanaditya95/robo_web?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ##Installation Prerequisites:
 Refer [requirements.txt](https://github.com/Robotix/robo_web/blob/master/requirements.txt).
 
