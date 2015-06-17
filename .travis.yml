@@ -1,0 +1,30 @@
+language: python
+
+services:
+    - postgresql
+
+env:
+    - DATABASE_URL='postgres://postgres:@localhost:5432/Robotix'
+    - SECRET_KEY='tT\xd7\xb06\xf7\x9b\xff\x0fZL\xca\xca\x11\xefM\xacr\xfb\xdf\xca\x9b'
+
+python:
+    - '3.4'
+    - '2.7'
+    - 'nightly'
+
+addons:
+    postgresql: '9.3'
+
+install:
+    - pip install -r requirements.txt
+
+before_script:
+    - psql -c 'create database Robotix;' -U postgres
+    - python manage.py migrate --noinput
+    - python manage.py collectstatic --noinput
+
+script:
+    - python manage.py test
+
+after_success:
+    - coveralls
