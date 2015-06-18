@@ -65,7 +65,7 @@ The steps below will get you up and running with a local development environment
     $ git clone git@github.com:your_name_here/Robotix.git
 
 3. Install Linux OS dependencies::
-  Missing support for Mac and Windows OS. Please help yourself.
+
     $ sudo ./install_os_dependencies.sh install
 
 4. Install your local copy into a virtualenv__. This is how you set up your fork for local development::
