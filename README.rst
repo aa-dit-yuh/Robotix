@@ -77,7 +77,19 @@ The steps below will get you up and running with a local development environment
 .. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 Further help: http://stackoverflow.com/questions/5506110/is-it-possible-to-install-another-version-of-python-to-virtualenv
 
-5. You can now run the ``runserver_plus`` command::
+5. Configure the DATABASE_URL environment variable::
+
+    $ sudo -u postgres psql
+    postgres=# ALTER USER postgres WITH PASSWORD 'robotix';
+    postgres=# CREATE DATABASE robotix;
+    postgres=# \q
+    $ export DATABASE_URL='postgres://postgres:robotix@localhost:5432/robotix'
+
+6. Run the migrations to create the database schema::
+
+    $ python manage.py migrate
+
+7. You can now run the ``runserver_plus`` command::
 
     $ python manage.py runserver_plus
 
@@ -85,23 +97,23 @@ The base app will run but you'll need to carry out a few steps to make the sign-
 
 .. _issue #39: https://github.com/pydanny/cookiecutter-django/issues/39
 
-6. Create a branch for local development::
+8. Create a branch for local development::
 
     $ git checkout -b name-of-your-bugfix-or-feature
 
-7. When you're done making changes, check that your changes pass flake8, pep8 and the tests::
+9. When you're done making changes, check that your changes pass flake8, pep8 and the tests::
 
     $ make lint
     $ make pep8
     $ make test
 
-8. Commit your changes and push your branch to GitHub::
+10. Commit your changes and push your branch to GitHub::
 
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 
-9. Submit a pull request through the GitHub website.
+11. Submit a pull request through the GitHub website.
 
 **Live reloading and Sass CSS compilation**
 
