@@ -57,3 +57,4 @@ node_modules/
 
 # Coverage
 .coverage
+coverage_html/
