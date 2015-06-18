@@ -33,7 +33,14 @@ DJANGO_APPS = (
 
     # Admin
     'django.contrib.admin',
+
+    # Third-party plugins
+    'django_comments',
+    'mptt',
+    'tagging',
+    'zinnia',
 )
+
 THIRD_PARTY_APPS = (
     'crispy_forms',  # Form layouts
     'allauth',  # registration
