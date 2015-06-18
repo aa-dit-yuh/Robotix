@@ -1,13 +1,10 @@
 language: python
 
 services:
-    - postgresql
-    - memcached
+    - postgresql memcached
 
 env:
-    - DATABASE_URL='postgres://postgres:@localhost:5432/Robotix'
-    - DJANGO_SECRET_KEY='tT\xd7\xb06\xf7\x9b\xff\x0fZL\xca\xca\x11\xefM\xacr\xfb\xdf\xca\x9b'
-    - DJANGO_SETTINGS_MODULE='config.settings.production'
+    - DATABASE_URL='postgres://postgres:@localhost:5432/Robotix' DJANGO_SECRET_KEY='tT\xd7\xb06\xf7\x9b\xff\x0fZL\xca\xca\x11\xefM\xacr\xfb\xdf\xca\x9b' DJANGO_SETTINGS_MODULE='config.settings.production'
 
 python:
     - '3.4'
