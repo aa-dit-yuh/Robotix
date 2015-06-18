@@ -7,8 +7,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-import zinnia
-
 blog_urls = [
     url(r'^', include('zinnia.urls.capabilities')),
     url(r'^search/', include('zinnia.urls.search')),

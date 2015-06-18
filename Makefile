@@ -6,6 +6,8 @@ help:
 	@echo "lint - check style with flake8"
 	@echo "pep8 - check for PEP8 errors"
 	@echo "test - run tests quickly with the default Python"
+	@echo "database - import SQL file to local database"
+	@echo "dump - rebuild SQL file from local database"
 	@echo "coverage - check code coverage quickly with the default Python"
 
 clean: clean-build clean-pyc
@@ -32,3 +34,10 @@ test:
 coverage:
 	coverage run manage.py test
 	coverage report -m
+
+database:
+	sudo -u postgres psql robotix < database.sql
+
+dump:
+	rm -f database.sql
+	sudo -u postgres pg_dump robotix > database.sql
