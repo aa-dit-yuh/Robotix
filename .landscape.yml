@@ -1,0 +1,20 @@
+doc-warnings: no
+test-warnings: no
+strictness: high
+max-line-length: 100
+uses:
+    - django
+autodetect: yes
+requirements:
+    - requirements.txt
+    - requirements/base.txt
+    - requirements/production.txt
+    - requirements/test.txt
+ignore-paths:
+    - docs
+ignore-patterns:
+    - ^example/doc_.*\.py$
+    - (^|/)docs(/|$)
+    - (^|/)tests(/|$)
+    - (^|/)migrations(/|$)
+    - (^|/)south_migrations(/|$)
