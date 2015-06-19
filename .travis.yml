@@ -9,7 +9,6 @@ env:
 python:
     - '3.4'
     - '2.7'
-    - 'nightly'
 
 addons:
     postgresql: '9.3'
@@ -19,9 +18,9 @@ install:
     - pip install -r requirements/test.txt
 
 before_script:
-    - psql -c 'create database robotix;' -U postgres
-    - python manage.py migrate --noinput
     - python manage.py collectstatic --noinput
+    - psql -c 'create database robotix;' -U postgres
+    - psql robotix < database.sql
 
 script:
     - coverage run manage.py test

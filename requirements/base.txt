@@ -32,4 +32,16 @@ django-autoslug==1.8.0
 # Time zones support
 pytz==2015.4
 
-# Your custom requirements go here
+####################################
+# Your custom requirements go here #
+####################################
+
+# Zinnia
+beautifulsoup4==4.3.2
+django-xmlrpc==0.1.5
+pyparsing==2.0.3
+django_tagging==0.4
+django_contrib_comments==1.6.1
+django_mptt==0.7.4
+# See https://github.com/Fantomas42/django-blog-zinnia/issues/391
+https://github.com/Fantomas42/django-blog-zinnia/archive/develop.zip

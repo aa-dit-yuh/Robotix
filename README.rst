@@ -85,9 +85,13 @@ Further help: http://stackoverflow.com/questions/5506110/is-it-possible-to-insta
     postgres=# \q
     $ export DATABASE_URL='postgres://postgres:robotix@localhost:5432/robotix'
 
-6. Run the migrations to create the database schema::
+You can configure the DATABASE_URL to be exported every time the virtual environment is activated.::
 
-    $ python manage.py migrate
+    $ echo export "DATABASE_URL='postgres://postgres:robotix@localhost:5432/robotix'" >> .virtualenv/bin/activate
+
+6. Import the database SQL dump into local database::
+
+    $ make database
 
 7. You can now run the ``runserver_plus`` command::
 
@@ -107,13 +111,21 @@ The base app will run but you'll need to carry out a few steps to make the sign-
     $ make pep8
     $ make test
 
-10. Commit your changes and push your branch to GitHub::
+10. Any change to the model structure must be proposed and discussed on the organization chat. If you change the model structue for any app, make sure you bundle the corresponding migrations in the same commit::
+
+    $ python manage.py makemigrations
+
+11. If you introduce migrations or add intial data to applications, please rebuild the SQL file::
+
+    $ make dump
+
+12. Commit your changes and push your branch to GitHub::
 
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 
-11. Submit a pull request through the GitHub website.
+13. Submit a pull request through the GitHub website.
 
 **Live reloading and Sass CSS compilation**
 
