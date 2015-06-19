@@ -9,7 +9,6 @@ env:
 python:
     - '3.4'
     - '2.7'
-    - 'nightly'
 
 addons:
     postgresql: '9.3'
