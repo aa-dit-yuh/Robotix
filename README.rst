@@ -85,6 +85,10 @@ Further help: http://stackoverflow.com/questions/5506110/is-it-possible-to-insta
     postgres=# \q
     $ export DATABASE_URL='postgres://postgres:robotix@localhost:5432/robotix'
 
+You can configure the DATABASE_URL to be exported every time the virtual environment is activated.
+
+    $ echo export "DATABASE_URL='postgres://postgres:robotix@localhost:5432/robotix'" >> .virtualenv/bin/activate
+
 6. Import the database SQL dump into local database::
 
     $ make database
