@@ -8758,7 +8758,7 @@ button.close {
   font-size: 1px;
   text-decoration: none;
   border: 0;
-  background: url(select2.png) right top no-repeat;
+  background: url(../img/select2/select2.png) right top no-repeat;
   cursor: pointer;
   outline: 0;
 }
@@ -8884,7 +8884,7 @@ button.close {
   display: block;
   width: 100%;
   height: 100%;
-  background: url(select2.png) no-repeat 0 1px;
+  background: url(../img/select2/select2.png) no-repeat 0 1px;
 }
 
 /* line 7, ../../private/sass/libs/_select2.scss */
@@ -8917,8 +8917,8 @@ button.close {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background: #fff url(select2.png) no-repeat 100% -22px;
-  background: url(select2.png) no-repeat 100% -22px, linear-gradient(to bottom, #ffffff 85%, #eeeeee 99%);
+  background: #fff url(../img/select2/select2.png) no-repeat 100% -22px;
+  background: url(../img/select2/select2.png) no-repeat 100% -22px, linear-gradient(to bottom, #ffffff 85%, #eeeeee 99%);
 }
 
 /* line 7, ../../private/sass/libs/_select2.scss */
@@ -8928,8 +8928,8 @@ button.close {
 
 /* line 7, ../../private/sass/libs/_select2.scss */
 .select2-search input.select2-active {
-  background: #fff url(select2-spinner.gif) no-repeat 100%;
-  background: url(select2-spinner.gif) no-repeat 100%, linear-gradient(to bottom, #ffffff 85%, #eeeeee 99%);
+  background: #fff url(../img/select2/select2-spinner.gif) no-repeat 100%;
+  background: url(../img/select2/select2-spinner.gif) no-repeat 100%, linear-gradient(to bottom, #ffffff 85%, #eeeeee 99%);
 }
 
 /* line 7, ../../private/sass/libs/_select2.scss */
@@ -9117,7 +9117,7 @@ button.close {
 
 /* line 7, ../../private/sass/libs/_select2.scss */
 .select2-more-results.select2-active {
-  background: #f4f4f4 url(select2-spinner.gif) no-repeat 100%;
+  background: #f4f4f4 url(../img/select2/select2-spinner.gif) no-repeat 100%;
 }
 
 /* line 7, ../../private/sass/libs/_select2.scss */
@@ -9214,7 +9214,7 @@ button.close {
 
 /* line 7, ../../private/sass/libs/_select2.scss */
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-  background: #fff url(select2-spinner.gif) no-repeat 100% !important;
+  background: #fff url(../img/select2/select2-spinner.gif) no-repeat 100% !important;
 }
 
 /* line 7, ../../private/sass/libs/_select2.scss */
@@ -9276,7 +9276,7 @@ button.close {
   top: 4px;
   font-size: 1px;
   outline: 0;
-  background: url(select2.png) right top no-repeat;
+  background: url(../img/select2/select2.png) right top no-repeat;
 }
 
 /* line 7, ../../private/sass/libs/_select2.scss */
