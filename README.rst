@@ -10,6 +10,9 @@ The website for Robotix 2016
    :alt: Code Health
 .. image:: https://coveralls.io/repos/Robotix/Robotix/badge.svg?style=flat
     :target: https://coveralls.io/r/Robotix/Robotix 
+.. image:: https://requires.io/github/Robotix/Robotix/requirements.svg?branch=master
+     :target: https://requires.io/github/Robotix/Robotix/requirements/?branch=master
+     :alt: Requirements Status
 
 *LICENSE*: BSD
 
