@@ -64,7 +64,8 @@ https://github.com/divio/django-cms/archive/develop.zip
 
 # Third Party Django CMS Plug-ins
 djangocms-text-ckeditor==2.5.2
-cmsplugin-zinnia==0.7
+# See https://github.com/django-blog-zinnia/cmsplugin-zinnia/pull/49
+https://github.com/narayanaditya95/cmsplugin-zinnia/archive/develop.zip
 cmsplugin-filer==0.10.1
 djangocms-link==1.6.2
 djangocms-snippet==1.5
