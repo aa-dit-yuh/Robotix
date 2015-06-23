@@ -1,9 +1,11 @@
-{% extends "base.html" %}
+{% extends "fullwidth.html" %}
+{% load i18n %}
 
-{% block title %}Page Not found{% endblock %}
+{% block body_class %}tpl-404{% endblock %}
+
+{% block title %}{% trans "404 - Page not found" %}{% endblock %}
 
 {% block content %}
-<h1>Page Not found</h1>
-
-<p>This is not the page you were looking for.</p>
+<h1>{% trans "404 - Page not found" %}</h1>
+<p>{% trans "We're sorry, but the requested page could not be found." %}</p>
 {% endblock content %}

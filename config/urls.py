@@ -34,7 +34,7 @@ urlpatterns = [
 
     # Your stuff: custom urls includes go here
     url(r'^comments/', include('django_comments.urls')),
-    url(r'^', include(blog_urls, namespace='zinnia')),
+    url(r'^', include('cms.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

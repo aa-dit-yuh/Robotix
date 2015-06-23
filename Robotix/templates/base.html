@@ -1,88 +1,102 @@
-{% load staticfiles i18n %}<!DOCTYPE html>
-<html lang="en" ng-app>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Robotix{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% extends "base_root.html" %}
+{% load i18n static cms_tags menu_tags %}
+{% load url from future %}
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+{% block body_class %}tpl-base{% endblock %}
 
-    {% block css %}
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+{# no indent for better readability on extend_root #}
+{% block extend_root %}
+{% block header %}
+    {# DOCS: http://getbootstrap.com/components/#navbar #}
+    <header class="navbar navbar-head">
+        <div class="container">
+            {# INFO: the logo should be placed first for seo reasons #}
+            <div class="navbar-header">
+                {# INFO: the logo should be placed first for seo reasons #}
+                <h1 class="navbar-brand">
+                    <a href="/">
+                        <span class="sr-only">{{ request.site.name }}</span>
+                        <img src="{% static "img/logo-main@print.png" %}" alt="{{ request.site.name }}" />
+                    </a>
+                </h1>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".js-navbar-header">
+                    {% for row in 123|make_list %}<span class="icon-bar"></span>{% endfor %}
+                </button>
+            </div>
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+            {# INFO: ensure the anchor names are callable #}
+            <h2 class="sr-only">{% trans "Shortcuts" %}</h2>
+            <ul class="skip-links">
+                <li><a href="/" title="[Alt + 0]" accesskey="0">{% trans "Go to home" %}</a></li>
+                <li><a href="#page-navigation" title="[Alt + 1]" accesskey="1">{% trans "Jump to navigation" %}</a></li>
+                <li><a href="#page-content" title="[Alt + 2]" accesskey="2">{% trans "Jump to content" %}</a></li>
+                <li><a href="#page-footer" title="[Alt + 3]" accesskey="3">{% trans "Contact" %}</a></li>
+            </ul>
 
-    <!-- Your stuff: Third-party css libraries go here -->
+            <div class="navbar-collapse collapse js-navbar-header">
+                {% block navbar %}
+                    <nav class="nav navbar-main navbar-right" id="page-navigation" role="navigation">
+                        <h2 class="sr-only">{% trans "Navigation" %}</h2>
+                        {% render_model_block request.current_page "changelist" %}
+                            {% with dropdown="true" %}
+                                <ul class="nav navbar-nav">
+                                    {% show_menu 0 1 100 100 "includes/menu/navigation.html" %}
+                                    <li class="divider" role="presentation"><span class="sr-only">{% trans "Separator" %}</span></li>
+                                    {% show_menu_below_id "meta" 0 0 100 100 "includes/menu/navigation.html" %}
+                                    {% language_chooser "includes/menu/langnav.html" "native" %}
+                                </ul>
+                            {% endwith %}
+                        {% endrender_model_block %}
+                    </nav>
+                {% endblock navbar %}
+            </div>
+        </div>
+    </header>
+{% endblock header %}
 
-    <!-- This file store project specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    {% endblock %}
+{# DOCS: http://getbootstrap.com/components/#breadcrumbs #}
+{% block breadcrumb %}
+    {% if not request.current_page.is_home %}
+        <nav class="navbar navbar-breadcrumb" role="navigation">
+            <h3 class="sr-only">{% trans "You are here" %}</h3>
+            <div class="container">
+                <ol class="breadcrumb">
+                    {% block extend_breadcrumb %}
+                        {% show_breadcrumb 0 "includes/menu/breadcrumb.html" %}
+                    {% endblock extend_breadcrumb %}
+                </ol>
+            </div>
+        </nav>
+    {% endif %}
+{% endblock breadcrumb %}
 
-    {% block angular %}
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    {% endblock %}
-
-  </head>
-
-  <body>
-
-    <div class="header navbar">
-      <div class="container">
-        <a class="navbar-brand" href="/">Robotix</a>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-
-          {% if request.user.is_authenticated %}
-            <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
-            <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
-          {% else %}
-            <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
-            <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li>
-          {% endif %}
-        </ul>
-      </div>
-    </div>
-
+{# start: content #}
+<hr class="sr-only" id="page-content" />
+{% block extend_base %}
+    {% block feature %}{% placeholder "feature" %}{% endblock feature %}
     <div class="container">
+        {% block messages %}
+            {% include "includes/messages.html" %}
+        {% endblock messages %}
+        {% block content %}{% endblock %}
+    </div>
+{% endblock extend_base %}
+<hr class="sr-only" />
+{# end: content #}
 
-      {% if messages %}
-          {% for message in messages %}
-              <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-          {% endfor %}
-      {% endif %}
+{% block footer %}
+    <footer class="footer" role="contentinfo">
+        <h1 class="sr-only" id="page-footer">{% trans "Sitemap" %}</h1>
 
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
-
-    </div> <!-- /container -->
-
-    {% block modal %}{% endblock modal %}
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    {% block javascript %}
-      <!-- Latest JQuery -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-      <!-- Your stuff: Third-party javascript libraries go here -->
-
-      <!-- place project specific Javascript in this file -->
-      <script src="{% static 'js/project.js' %}"></script>
-    {% endblock javascript %}
-  </body>
-</html>
- 
+        <div class="container">
+            {% static_placeholder "footer" %}
+            {% render_model_block request.current_page "changelist" %}
+                <ul class="list-inline">
+                    <li class="pull-right"><a href="#page-top" data-spy="scroll"><span class="fa fa-left fa-arrow-up"></span>{% trans "Back to top" %}</a></li>
+                    {% show_menu_below_id "footer" 0 0 100 100 "includes/menu/navigation.html" %}
+                </ul>
+            {% endrender_model_block %}
+        </div>
+    </footer>
+{% endblock footer %}
+{% endblock extend_root %}

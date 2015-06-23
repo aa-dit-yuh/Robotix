@@ -6,7 +6,6 @@ django-environ==0.3.0
 django-secure==1.0.1
 whitenoise==1.0.6
 
-
 # Forms
 django-braces==1.8.0
 django-crispy-forms==1.4.0
@@ -35,13 +34,38 @@ pytz==2015.4
 ####################################
 # Your custom requirements go here #
 ####################################
+django-reversion==1.8.7
+django-appconf==1.0.1
+django-select2==4.3.1
+
+# Filer
+django-mptt==0.7.4
+easy-thumbnails==2.2
+django-polymorphic==0.7.1
+django-filer==0.9.11
 
 # Zinnia
 beautifulsoup4==4.3.2
 django-xmlrpc==0.1.5
 pyparsing==2.0.3
-django_tagging==0.4
-django_contrib_comments==1.6.1
-django_mptt==0.7.4
+django-tagging==0.4
+django-contrib-comments==1.6.1
 # See https://github.com/Fantomas42/django-blog-zinnia/issues/391
 https://github.com/Fantomas42/django-blog-zinnia/archive/develop.zip
+
+# Django CMS
+django-classy-tags==0.6.2
+html5lib==0.999
+django-treebeard==3.0
+django-sekizai==0.8.2
+djangocms-admin-style==0.2.7
+# Bleeding Edge: for Django 1.8 support
+https://github.com/divio/django-cms/archive/develop.zip
+
+# Third Party Django CMS Plug-ins
+djangocms-text-ckeditor==2.5.2
+cmsplugin-zinnia==0.7
+cmsplugin-filer==0.10.1
+djangocms-link==1.6.2
+djangocms-snippet==1.5
+djangocms-style==1.5
