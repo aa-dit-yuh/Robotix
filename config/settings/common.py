@@ -43,6 +43,7 @@ THIRD_PARTY_APPS = (
 
     # Zinnia
     'django_comments',
+    'mptt',
     'tagging',
     'zinnia',
 
@@ -51,23 +52,12 @@ THIRD_PARTY_APPS = (
     'treebeard',
     'menus',
     'sekizai',
-
-    # Filer
     'reversion',
-    'mptt',
-    'easy_thumbnails',
-    'filer',
 
     # Django CMS plugins
     'cmsplugin_zinnia',
     'djangocms_admin_style',
     'djangocms_text_ckeditor',
-    'cmsplugin_filer_file',
-    'cmsplugin_filer_folder',
-    'cmsplugin_filer_link',
-    'cmsplugin_filer_image',
-    'cmsplugin_filer_teaser',
-    'cmsplugin_filer_video',
     'djangocms_link',
     'djangocms_snippet',
     'djangocms_style',
@@ -103,7 +93,12 @@ MIDDLEWARE_CLASSES = (
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'Robotix.contrib.sites.migrations'
+    'sites': 'Robotix.contrib.sites.migrations',
+    'cmsplugin_zinnia': 'cmsplugin_zinnia.migrations',
+    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations',
+    'djangocms_link': 'djangocms_link.migrations_django',
+    'djangocms_snippet': 'djangocms_snippet.migrations_django',
+    'djangocms_style': 'djangocms_style.migrations_django',
 }
 
 # DEBUG
@@ -298,15 +293,6 @@ LOGGING = {
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
-
-# Django Filer Configuration
-# ------------------------------------------------------------------------------
-THUMBNAIL_PROCESSORS = (
-    'easy_thumbnails.processors.colorspace',
-    'easy_thumbnails.processors.autocrop',
-    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
-    'easy_thumbnails.processors.filters',
-)
 
 # Zinnia Configuration
 # ------------------------------------------------------------------------------
