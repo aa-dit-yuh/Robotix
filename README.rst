@@ -93,7 +93,15 @@ You can configure the DATABASE_URL to be exported every time the virtual environ
 
     $ make database
 
-7. You can now run the ``runserver_plus`` command::
+7. Zinnia and its cmsplugin-zinnia have uncommited migrations that you may have to generate::
+
+    $ python manage.py makemigrations
+
+8. To check whether the local development is correctly configured::
+
+    $ python manage.py cms check
+
+9. You can now run the ``runserver_plus`` command::
 
     $ python manage.py runserver_plus
 
@@ -101,31 +109,31 @@ The base app will run but you'll need to carry out a few steps to make the sign-
 
 .. _issue #39: https://github.com/pydanny/cookiecutter-django/issues/39
 
-8. Create a branch for local development::
+10. Create a branch for local development::
 
     $ git checkout -b name-of-your-bugfix-or-feature
 
-9. When you're done making changes, check that your changes pass flake8, pep8 and the tests::
+11. When you're done making changes, check that your changes pass flake8, pep8 and the tests::
 
     $ make lint
     $ make pep8
     $ make test
 
-10. Any change to the model structure must be proposed and discussed on the organization chat. If you change the model structue for any app, make sure you bundle the corresponding migrations in the same commit::
+12. Any change to the model structure must be proposed and discussed on the organization chat. If you change the model structue for any app, make sure you bundle the corresponding migrations in the same commit::
 
     $ python manage.py makemigrations
 
-11. If you introduce migrations or add intial data to applications, please rebuild the SQL file::
+13. If you introduce migrations or add intial data to applications, please rebuild the SQL file::
 
     $ make dump
 
-12. Commit your changes and push your branch to GitHub::
+14. Commit your changes and push your branch to GitHub::
 
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 
-13. Submit a pull request through the GitHub website.
+15. Submit a pull request through the GitHub website.
 
 **Live reloading and Sass CSS compilation**
 
