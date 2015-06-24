@@ -46,6 +46,7 @@ THIRD_PARTY_APPS = (
     'mptt',
     'tagging',
     'zinnia',
+    'zinnia_wordpress',
 
     # Django CMS
     'cms',
