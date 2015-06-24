@@ -50,7 +50,7 @@ https://github.com/Fantomas42/django-blog-zinnia/archive/develop.zip
 
 # Django CMS
 django-classy-tags==0.6.2
-html5lib==0.999
+html5lib==0.99999
 django-treebeard==3.0
 django-sekizai==0.8.2
 djangocms-admin-style==0.2.7
