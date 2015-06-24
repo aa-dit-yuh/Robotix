@@ -19,6 +19,7 @@ install:
 
 before_script:
     - python manage.py collectstatic --noinput
+    - python manage.py makemigrations
     - psql -c 'create database robotix;' -U postgres
     - psql robotix < database.sql
 

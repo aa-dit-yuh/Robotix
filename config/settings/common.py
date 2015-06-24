@@ -33,12 +33,6 @@ DJANGO_APPS = (
 
     # Admin
     'django.contrib.admin',
-
-    # Third-party plugins
-    'django_comments',
-    'mptt',
-    'tagging',
-    'zinnia',
 )
 
 THIRD_PARTY_APPS = (
@@ -46,6 +40,27 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+
+    # Zinnia
+    'django_comments',
+    'mptt',
+    'tagging',
+    'zinnia',
+
+    # Django CMS
+    'cms',
+    'treebeard',
+    'menus',
+    'sekizai',
+    'reversion',
+
+    # Django CMS plugins
+    'cmsplugin_zinnia',
+    'djangocms_admin_style',
+    'djangocms_text_ckeditor',
+    'djangocms_link',
+    'djangocms_snippet',
+    'djangocms_style',
 )
 
 # Apps specific for this project go here.
@@ -55,7 +70,7 @@ LOCAL_APPS = (
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 # MIDDLEWARE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -66,13 +81,24 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Your stuff: custom middleware classes go here
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'Robotix.contrib.sites.migrations'
+    'sites': 'Robotix.contrib.sites.migrations',
+    'cmsplugin_zinnia': 'cmsplugin_zinnia.migrations',
+    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations',
+    'djangocms_link': 'djangocms_link.migrations_django',
+    'djangocms_snippet': 'djangocms_snippet.migrations_django',
+    'djangocms_style': 'djangocms_style.migrations_django',
 }
 
 # DEBUG
@@ -167,6 +193,8 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 # Your stuff: custom template context processors go here
+                'sekizai.context_processors.sekizai',
+                'cms.context_processors.cms_settings',
             ],
         },
     },
@@ -264,3 +292,23 @@ LOGGING = {
 }
 
 # Your common stuff: Below this line define 3rd party library settings
+# ------------------------------------------------------------------------------
+
+# Zinnia Configuration
+# ------------------------------------------------------------------------------
+ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'
+
+CMSPLUGIN_ZINNIA_APP_MENUS = []
+
+# Django CMS Configuration
+# ------------------------------------------------------------------------------
+
+CMS_TEMPLATES = (
+    ('fullwidth.html', 'Full-Width'),
+    ('sidebar_left.html', 'Left Sidebar'),
+    ('sidebar_right.html', 'Right Sidebar'),
+)
+
+LANGUAGES = [
+    ('en-us', 'English'),
+]
