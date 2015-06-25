@@ -43,7 +43,15 @@
   {% cms_toolbar %}
 
   {% block extend_root %}{% endblock %}
-
+  <div id="settings-panel">
+    <span id="panel-opener"><i class="fa fa-cog fa-spin"></i></span>
+    <div class="color-container">
+      <a href="javascript:chooseStyle('none', 60)"><div class="color color-1"></div></a>
+      <a href="javascript:chooseStyle('blue', 60)"><div class="color color-2"></div></a>
+      <a href="javascript:chooseStyle('red', 60)"><div class="color color-3"></div></a>
+      <a href="javascript:chooseStyle('mblue', 60)"><div class="color color-4"></div></a>
+    </div>
+  </div>
   <script src="{% static 'js/libs/jquery.min.js' %}"></script>
   <script src="{% static 'js/libs/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/libs/class.min.js' %}"></script>
