@@ -3,7 +3,7 @@ Robotix
 
 The website for Robotix 2016
 
-.. image:: https://travis-ci.org/Robotix/Robotix.svg?branch=master?style=flat
+.. image:: https://travis-ci.org/Robotix/Robotix.svg?branch=master
     :target: https://travis-ci.org/Robotix/Robotix
 .. image:: https://landscape.io/github/Robotix/Robotix/master/landscape.svg?style=flat
    :target: https://landscape.io/github/Robotix/Robotix/master
