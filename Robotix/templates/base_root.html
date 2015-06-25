@@ -19,6 +19,7 @@
   <link rel="apple-touch-icon" href="{% static 'favicon.png' %}">
   <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
   <!--[if IE]><link rel="shortcut icon" href="{% static 'favicon.ico' %}"><![endif]-->
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="{% static 'css/libs/animate.css' %}">
@@ -38,33 +39,41 @@
   {{ ALDRYN_SNAKE.render_head }}
 </head>
 <body id="page-top" class="noscript lang-{{ LANGUAGE_CODE }} {% block body_class %}tpl-root{% endblock %}">
-{% include "includes/analytics.html" %}
-{% cms_toolbar %}
+  {% include "includes/analytics.html" %}
+  {% cms_toolbar %}
 
-{% block extend_root %}{% endblock %}
+  {% block extend_root %}{% endblock %}
 
-<script src="{% static 'js/libs/jquery.min.js' %}"></script>
-<script src="{% static 'js/libs/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/libs/class.min.js' %}"></script>
-<script src="{% static 'js/libs/outdatedBrowser.min.js' %}"></script>
-<script src="{% static 'js/addons/cl.utils.js' %}"></script>
-{% if debug %}
-  <script src="{% static 'js/addons/cl.debug.min.js' %}"></script>
-{% endif %}
-<script src="{% static 'js/base.js' %}"></script>
-{% render_block "js" %}
-{% block extrafoot %}{% endblock %}
-{{ ALDRYN_SNAKE.render_tail }}
-<div class="browser-outdated" id="outdated" hidden="hidden">
-  <noscript><h3>{% trans "Please enable JavaScript" %}</h3></noscript>
-  <h3>{% trans "Your browser is out-of-date!" %}</h3>
-  <p>{% trans "Update your browser to view this website correctly." %}</p>
-  <p>
-    <a href="http://outdatedbrowser.com/" class="btn btn-lg btn-outline" id="btnUpdateBrowser">
-      {% trans "Update my browser now" %}
-    </a>
-  </p>
-  <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
+  <script src="{% static 'js/libs/jquery.min.js' %}"></script>
+  <script src="{% static 'js/libs/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/libs/class.min.js' %}"></script>
+  <script src="{% static 'js/libs/outdatedBrowser.min.js' %}"></script>
+  <script src="{% static 'js/addons/cl.utils.js' %}"></script>
+  <script src="{% static 'js/libs/jquery.nav.js' %}"></script>
+  <script src="{% static 'js/libs/owl.carousel.js' %}"></script>
+  <script src="{% static 'js/libs/wow.js' %}"></script>
+  <script src="{% static 'js/libs/jquery.mixitup.js' %}"></script>
+  <script src="{% static 'js/libs/lightbox.min.js' %}"></script>
+  <script src="{% static 'js/libs/scroll-top.js' %}"></script>
+  <script src="{% static 'js/libs/smooth-scroll.js' %}"></script>
+  <script src="{% static 'js/libs/style.changer.js' %}"></script>
+  {% if debug %}
+    <script src="{% static 'js/addons/cl.debug.min.js' %}"></script>
+  {% endif %}
+  <script src="{% static 'js/base.js' %}"></script>
+  {% render_block "js" %}
+  {% block extrafoot %}{% endblock %}
+  {{ ALDRYN_SNAKE.render_tail }}
+  <div class="browser-outdated" id="outdated" hidden="hidden">
+    <noscript><h3>Please enable JavaScript</h3></noscript>
+    <h3>Your browser is out-of-date!</h3>
+    <p>Update your browser to view this website correctly.</p>
+    <p>
+      <a href="http://outdatedbrowser.com/" class="btn btn-lg btn-outline" id="btnUpdateBrowser">
+        Update my browser now
+      </a>
+    </p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+  </div>
 </body>
 </html>
