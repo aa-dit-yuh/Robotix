@@ -10,7 +10,7 @@
         </span>
     </a>
     {% if child.children %}
-        <ul{% if child.children and not child.parent and dropdown %} class="dropdown-menu" role="menu"{% endif %}>
+        <ul{% if child.children and not child.parent and dropdown %} class="navbar-inverse dropdown-menu" role="menu"{% endif %}>
             {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
         </ul>
     {% endif %}
