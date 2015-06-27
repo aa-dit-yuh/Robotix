@@ -45,8 +45,7 @@ django-xmlrpc==0.1.5
 pyparsing==2.0.3
 django-tagging==0.4
 django-contrib-comments==1.6.1
-# See https://github.com/Fantomas42/django-blog-zinnia/issues/391
-https://github.com/Fantomas42/django-blog-zinnia/archive/develop.zip
+django-blog-zinnia==0.15.2
 
 # Django CMS
 django-classy-tags==0.6.2
