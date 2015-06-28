@@ -38,8 +38,13 @@ django-reversion==1.8.7
 django-appconf==1.0.1
 django-select2==4.3.1
 
-# Zinnia
+# Filer
 django-mptt==0.7.4
+django-polymorphic==0.7.1
+easy-thumbnails==2.2
+django-filer==0.9.11
+
+# Zinnia
 beautifulsoup4==4.3.2
 django-xmlrpc==0.1.5
 pyparsing==2.0.3
