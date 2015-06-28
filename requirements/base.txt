@@ -53,13 +53,12 @@ html5lib==0.99999
 django-treebeard==3.0
 django-sekizai==0.8.2
 djangocms-admin-style==0.2.7
-# Bleeding Edge: for Django 1.8 support
-https://github.com/divio/django-cms/archive/develop.zip
+django-cms==3.1.1
 
 # Third Party Django CMS Plug-ins
 djangocms-text-ckeditor==2.5.2
-# See https://github.com/django-blog-zinnia/cmsplugin-zinnia/pull/49
-https://github.com/narayanaditya95/cmsplugin-zinnia/archive/develop.zip
+# Bleeding Edge: for Django 1.8 support
+https://github.com/django-blog-zinnia/cmsplugin-zinnia/archive/develop.zip
 djangocms-link==1.6.2
 djangocms-snippet==1.5
 djangocms-style==1.5
