@@ -65,6 +65,7 @@ THIRD_PARTY_APPS = (
     'djangocms_link',
     'djangocms_snippet',
     'djangocms_style',
+    'aldryn_bootstrap3',
 )
 
 # Apps specific for this project go here.

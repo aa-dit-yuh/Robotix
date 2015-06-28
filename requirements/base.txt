@@ -37,6 +37,7 @@ pytz==2015.4
 django-reversion==1.8.7
 django-appconf==1.0.1
 django-select2==4.3.1
+django-durationfield==0.5.1
 
 # Filer
 django-mptt==0.7.4
@@ -67,3 +68,4 @@ https://github.com/django-blog-zinnia/cmsplugin-zinnia/archive/develop.zip
 djangocms-link==1.6.2
 djangocms-snippet==1.5
 djangocms-style==1.5
+aldryn-bootstrap3==0.5.1
