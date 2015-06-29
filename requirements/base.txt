@@ -67,3 +67,4 @@ https://github.com/django-blog-zinnia/cmsplugin-zinnia/archive/develop.zip
 djangocms-link==1.6.2
 djangocms-snippet==1.5
 djangocms-style==1.5
+djangocms-picture==0.1

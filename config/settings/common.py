@@ -65,6 +65,7 @@ THIRD_PARTY_APPS = (
     'djangocms_link',
     'djangocms_snippet',
     'djangocms_style',
+    'djangocms_picture',
 )
 
 # Apps specific for this project go here.
@@ -103,6 +104,7 @@ MIGRATION_MODULES = {
     'djangocms_link': 'djangocms_link.migrations_django',
     'djangocms_snippet': 'djangocms_snippet.migrations_django',
     'djangocms_style': 'djangocms_style.migrations_django',
+    'djangocms_picture': 'djangocms_picture.migrations_django',
 }
 
 # DEBUG
