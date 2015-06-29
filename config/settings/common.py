@@ -66,6 +66,9 @@ THIRD_PARTY_APPS = (
     'djangocms_snippet',
     'djangocms_style',
     'djangocms_picture',
+    'cmsplugin_cascade',
+    'cmsplugin_cascade.extra_fields',
+    'cmsplugin_cascade.sharable',
 )
 
 # Apps specific for this project go here.
@@ -317,7 +320,6 @@ CMSPLUGIN_ZINNIA_APP_MENUS = []
 
 # Django CMS Configuration
 # ------------------------------------------------------------------------------
-
 CMS_TEMPLATES = (
     ('fullwidth.html', 'Full-Width'),
     ('sidebar_left.html', 'Left Sidebar'),
@@ -327,3 +329,30 @@ CMS_TEMPLATES = (
 LANGUAGES = [
     ('en-us', 'English'),
 ]
+
+# Django CMS Cascade Configuration
+# ------------------------------------------------------------------------------
+CMSPLUGIN_CASCADE_PLUGINS = [
+    'cmsplugin_cascade.bootstrap3',
+    'cmsplugin_cascade.link',
+]
+
+CMSPLUGIN_CASCADE_WITH_SHARABLES = {
+    'TextLinkPlugin':  ('link',),
+}
+
+CMSPLUGIN_CASCADE_WITH_EXTRAFIELDS = (
+    'BootstrapButtonPlugin',
+    'BootstrapRowPlugin',
+    'SimpleWrapperPlugin',
+    'HorizontalRulePlugin',
+)
+
+CMSPLUGIN_CASCADE_WITH_EXTRAFIELDS = (
+    'BootstrapButtonPlugin',
+    'BootstrapRowPlugin',
+    'SimpleWrapperPlugin',
+    'PanelGroupPlugin',
+    'PanelPlugin',
+    'BootstrapImagePlugin',
+)
