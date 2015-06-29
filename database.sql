@@ -1135,6 +1135,23 @@ CREATE TABLE djangocms_link_link (
 ALTER TABLE public.djangocms_link_link OWNER TO postgres;
 
 --
+-- Name: djangocms_picture_picture; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE djangocms_picture_picture (
+    cmsplugin_ptr_id integer NOT NULL,
+    image character varying(100) NOT NULL,
+    url character varying(255),
+    alt character varying(255),
+    longdesc character varying(255),
+    "float" character varying(10),
+    page_link_id integer
+);
+
+
+ALTER TABLE public.djangocms_picture_picture OWNER TO postgres;
+
+--
 -- Name: djangocms_snippet_snippet; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -2811,6 +2828,9 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 166	Can add thumbnail dimensions	53	add_thumbnaildimensions
 167	Can change thumbnail dimensions	53	change_thumbnaildimensions
 168	Can delete thumbnail dimensions	53	delete_thumbnaildimensions
+169	Can add picture	54	add_picture
+170	Can change picture	54	change_picture
+171	Can delete picture	54	delete_picture
 \.
 
 
@@ -2818,7 +2838,7 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('auth_permission_id_seq', 168, true);
+SELECT pg_catalog.setval('auth_permission_id_seq', 171, true);
 
 
 --
@@ -5980,6 +6000,7 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 51	easy_thumbnails	source
 52	easy_thumbnails	thumbnail
 53	easy_thumbnails	thumbnaildimensions
+54	djangocms_picture	picture
 \.
 
 
@@ -5987,7 +6008,7 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('django_content_type_id_seq', 53, true);
+SELECT pg_catalog.setval('django_content_type_id_seq', 54, true);
 
 
 --
@@ -6048,6 +6069,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 51	easy_thumbnails	0002_thumbnaildimensions	2015-06-28 21:07:06.746598+05:30
 52	filer	0001_initial	2015-06-28 21:07:09.527746+05:30
 53	filer	0002_auto_20150606_2003	2015-06-28 21:07:09.816533+05:30
+54	djangocms_picture	0001_initial	2015-06-30 01:12:52.026743+05:30
 \.
 
 
@@ -6055,7 +6077,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('django_migrations_id_seq', 53, true);
+SELECT pg_catalog.setval('django_migrations_id_seq', 54, true);
 
 
 --
@@ -6065,6 +6087,7 @@ SELECT pg_catalog.setval('django_migrations_id_seq', 53, true);
 COPY django_session (session_key, session_data, expire_date) FROM stdin;
 s467qv1q7bygivqjxn93jt9ciupcmztf	ZjU3ODg5YTZjNjc4ZjNjODkxNGZmYWVmYThkYmI0OTkwMmM4MTc0Mzp7ImNtc19hZG1pbl9zaXRlIjoxLCJfYXV0aF91c2VyX2lkIjoiMSIsImNtc190b29sYmFyX2Rpc2FibGVkIjpmYWxzZSwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJjbXNfZWRpdCI6ZmFsc2UsIl9hdXRoX3VzZXJfaGFzaCI6ImU5MTJkYWUwZDM0ZjQ1NmI2M2YwMzRjYTAyZWU1MzQwNTczNjExYTgifQ==	2015-07-08 12:45:03.800324+05:30
 qv30izraw0rkjw8e2b26s5sfk8q4qwex	NTdjMWI2OTlkYWQ1OTFhNzY1ZThmNTczMTVmZGUyNTgxYWNkNGY4ZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiY21zX3Rvb2xiYXJfZGlzYWJsZWQiOmZhbHNlLCJmaWxlcl9sYXN0X2ZvbGRlcl9pZCI6bnVsbCwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJjbXNfZWRpdCI6dHJ1ZSwiX2F1dGhfdXNlcl9oYXNoIjoiZTkxMmRhZTBkMzRmNDU2YjYzZjAzNGNhMDJlZTUzNDA1NzM2MTFhOCJ9	2015-07-12 21:16:59.834241+05:30
+tocwqq33dt59f9p3xla7ihkrbmgi7sf7	NThhNjQxODllMDJhODM0OWM0OTljMDliMTM4MTBiNzEwMGE0MTBlZDp7fQ==	2015-07-14 01:12:40.483403+05:30
 \.
 
 
@@ -6089,6 +6112,14 @@ SELECT pg_catalog.setval('django_site_id_seq', 1, false);
 --
 
 COPY djangocms_link_link (cmsplugin_ptr_id, name, url, anchor, mailto, phone, target, page_link_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: djangocms_picture_picture; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY djangocms_picture_picture (cmsplugin_ptr_id, image, url, alt, longdesc, "float", page_link_id) FROM stdin;
 \.
 
 
@@ -7794,6 +7825,14 @@ ALTER TABLE ONLY djangocms_link_link
 
 
 --
+-- Name: djangocms_picture_picture_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY djangocms_picture_picture
+    ADD CONSTRAINT djangocms_picture_picture_pkey PRIMARY KEY (cmsplugin_ptr_id);
+
+
+--
 -- Name: djangocms_snippet_snippet_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -8739,6 +8778,13 @@ CREATE INDEX djangocms_link_link_d916d256 ON djangocms_link_link USING btree (pa
 
 
 --
+-- Name: djangocms_picture_picture_d916d256; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX djangocms_picture_picture_d916d256 ON djangocms_picture_picture USING btree (page_link_id);
+
+
+--
 -- Name: djangocms_snippet_snippet_name_34dccad9ffc36b55_like; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -9677,6 +9723,14 @@ ALTER TABLE ONLY djangocms_snippet_snippetptr
 
 
 --
+-- Name: djangocms_cmsplugin_ptr_id_159766f088e60041_fk_cms_cmsplugin_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY djangocms_picture_picture
+    ADD CONSTRAINT djangocms_cmsplugin_ptr_id_159766f088e60041_fk_cms_cmsplugin_id FOREIGN KEY (cmsplugin_ptr_id) REFERENCES cms_cmsplugin(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
 -- Name: djangocms_cmsplugin_ptr_id_15f60a222b2c5a7d_fk_cms_cmsplugin_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -9706,6 +9760,14 @@ ALTER TABLE ONLY djangocms_style_style
 
 ALTER TABLE ONLY djangocms_link_link
     ADD CONSTRAINT djangocms_link_lin_page_link_id_73a81d8c3a1a7182_fk_cms_page_id FOREIGN KEY (page_link_id) REFERENCES cms_page(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: djangocms_picture__page_link_id_68c4fc0be6114e12_fk_cms_page_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY djangocms_picture_picture
+    ADD CONSTRAINT djangocms_picture__page_link_id_68c4fc0be6114e12_fk_cms_page_id FOREIGN KEY (page_link_id) REFERENCES cms_page(id) DEFERRABLE INITIALLY DEFERRED;
 
 
 --
