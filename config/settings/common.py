@@ -336,18 +336,10 @@ CMSPLUGIN_CASCADE_PLUGINS = [
     'cmsplugin_cascade.bootstrap3',
     'cmsplugin_cascade.link',
 ]
-
 CMSPLUGIN_CASCADE_WITH_SHARABLES = {
     'TextLinkPlugin':  ('link',),
+    'BootstrapButtonPlugin': ('link',),
 }
-
-CMSPLUGIN_CASCADE_WITH_EXTRAFIELDS = (
-    'BootstrapButtonPlugin',
-    'BootstrapRowPlugin',
-    'SimpleWrapperPlugin',
-    'HorizontalRulePlugin',
-)
-
 CMSPLUGIN_CASCADE_WITH_EXTRAFIELDS = (
     'BootstrapButtonPlugin',
     'BootstrapRowPlugin',
@@ -356,3 +348,25 @@ CMSPLUGIN_CASCADE_WITH_EXTRAFIELDS = (
     'PanelPlugin',
     'BootstrapImagePlugin',
 )
+CMSPLUGIN_CASCADE_ALIEN_PLUGINS = ('TextPlugin',)
+
+COLUMN_GLOSSARY = {
+    'breakpoints': ['xs', 'sm', 'md', 'lg'],
+    'container_max_widths': {'xs': 750, 'sm': 750, 'md': 970, 'lg': 1170},
+    'fluid': False,
+    'media_queries': {
+        'xs': ['(max-width: 768px)'],
+        'sm': ['(min-width: 768px)', '(max-width: 992px)'],
+        'md': ['(min-width: 992px)', '(max-width: 1200px)'],
+        'lg': ['(min-width: 1200px)'],
+    },
+}
+
+CMS_PLACEHOLDER_CONF = {
+    'Bootstrap Column': {
+        'plugins': ['BootstrapRowPlugin', 'TextPlugin'],
+        'parent_classes': {'BootstrapRowPlugin': []},
+        'require_parent': False,
+        'glossary': COLUMN_GLOSSARY,
+    },
+}

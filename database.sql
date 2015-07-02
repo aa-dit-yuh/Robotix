@@ -671,6 +671,103 @@ ALTER SEQUENCE cms_usersettings_id_seq OWNED BY cms_usersettings.id;
 
 
 --
+-- Name: cmsplugin_cascade_element; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cmsplugin_cascade_element (
+    cmsplugin_ptr_id integer NOT NULL,
+    glossary text
+);
+
+
+ALTER TABLE public.cmsplugin_cascade_element OWNER TO postgres;
+
+--
+-- Name: cmsplugin_cascade_pluginextrafields; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cmsplugin_cascade_pluginextrafields (
+    id integer NOT NULL,
+    plugin_type character varying(50) NOT NULL,
+    allow_id_tag boolean NOT NULL,
+    css_classes text,
+    inline_styles text,
+    site_id integer NOT NULL
+);
+
+
+ALTER TABLE public.cmsplugin_cascade_pluginextrafields OWNER TO postgres;
+
+--
+-- Name: cmsplugin_cascade_pluginextrafields_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE cmsplugin_cascade_pluginextrafields_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cmsplugin_cascade_pluginextrafields_id_seq OWNER TO postgres;
+
+--
+-- Name: cmsplugin_cascade_pluginextrafields_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE cmsplugin_cascade_pluginextrafields_id_seq OWNED BY cmsplugin_cascade_pluginextrafields.id;
+
+
+--
+-- Name: cmsplugin_cascade_sharableelement; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cmsplugin_cascade_sharableelement (
+    cmsplugin_ptr_id integer NOT NULL,
+    glossary text,
+    shared_glossary_id integer
+);
+
+
+ALTER TABLE public.cmsplugin_cascade_sharableelement OWNER TO postgres;
+
+--
+-- Name: cmsplugin_cascade_sharedglossary; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cmsplugin_cascade_sharedglossary (
+    id integer NOT NULL,
+    plugin_type character varying(50) NOT NULL,
+    identifier character varying(50) NOT NULL,
+    glossary text
+);
+
+
+ALTER TABLE public.cmsplugin_cascade_sharedglossary OWNER TO postgres;
+
+--
+-- Name: cmsplugin_cascade_sharedglossary_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE cmsplugin_cascade_sharedglossary_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cmsplugin_cascade_sharedglossary_id_seq OWNER TO postgres;
+
+--
+-- Name: cmsplugin_cascade_sharedglossary_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE cmsplugin_cascade_sharedglossary_id_seq OWNED BY cmsplugin_cascade_sharedglossary.id;
+
+
+--
 -- Name: cmsplugin_zinnia_calendarentriesplugin; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -2340,6 +2437,20 @@ ALTER TABLE ONLY cms_usersettings ALTER COLUMN id SET DEFAULT nextval('cms_users
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
+ALTER TABLE ONLY cmsplugin_cascade_pluginextrafields ALTER COLUMN id SET DEFAULT nextval('cmsplugin_cascade_pluginextrafields_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_sharedglossary ALTER COLUMN id SET DEFAULT nextval('cmsplugin_cascade_sharedglossary_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
 ALTER TABLE ONLY cmsplugin_zinnia_latestentriesplugin_authors ALTER COLUMN id SET DEFAULT nextval('cmsplugin_zinnia_latestentriesplugin_authors_id_seq'::regclass);
 
 
@@ -2831,6 +2942,69 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 169	Can add picture	54	add_picture
 170	Can change picture	54	change_picture
 171	Can delete picture	54	delete_picture
+172	Can add Shared between Plugins	55	add_sharedglossary
+173	Can change Shared between Plugins	55	change_sharedglossary
+174	Can delete Shared between Plugins	55	delete_sharedglossary
+175	Can add cascade element	56	add_cascadeelement
+176	Can change cascade element	56	change_cascadeelement
+177	Can delete cascade element	56	delete_cascadeelement
+178	Can add sharable cascade element	57	add_sharablecascadeelement
+179	Can change sharable cascade element	57	change_sharablecascadeelement
+180	Can delete sharable cascade element	57	delete_sharablecascadeelement
+181	Can add Custom CSS classes and styles	58	add_pluginextrafields
+182	Can change Custom CSS classes and styles	58	change_pluginextrafields
+183	Can delete Custom CSS classes and styles	58	delete_pluginextrafields
+184	Can add Segmentation	59	add_segmentation
+185	Can change Segmentation	59	change_segmentation
+186	Can delete Segmentation	59	delete_segmentation
+187	Can add cascade plugin base model	56	add_cascadepluginbasemodel
+188	Can change cascade plugin base model	56	change_cascadepluginbasemodel
+189	Can delete cascade plugin base model	56	delete_cascadepluginbasemodel
+190	Can add link plugin base model	56	add_linkpluginbasemodel
+191	Can change link plugin base model	56	change_linkpluginbasemodel
+192	Can delete link plugin base model	56	delete_linkpluginbasemodel
+193	Can add bootstrap button plugin model	56	add_bootstrapbuttonpluginmodel
+194	Can change bootstrap button plugin model	56	change_bootstrapbuttonpluginmodel
+195	Can delete bootstrap button plugin model	56	delete_bootstrapbuttonpluginmodel
+196	Can add bootstrap plugin base model	56	add_bootstrappluginbasemodel
+197	Can change bootstrap plugin base model	56	change_bootstrappluginbasemodel
+198	Can delete bootstrap plugin base model	56	delete_bootstrappluginbasemodel
+199	Can add bootstrap image plugin model	56	add_bootstrapimagepluginmodel
+200	Can change bootstrap image plugin model	56	change_bootstrapimagepluginmodel
+201	Can delete bootstrap image plugin model	56	delete_bootstrapimagepluginmodel
+202	Can add bootstrap picture plugin model	56	add_bootstrappicturepluginmodel
+203	Can change bootstrap picture plugin model	56	change_bootstrappicturepluginmodel
+204	Can delete bootstrap picture plugin model	56	delete_bootstrappicturepluginmodel
+205	Can add carousel plugin model	56	add_carouselpluginmodel
+206	Can change carousel plugin model	56	change_carouselpluginmodel
+207	Can delete carousel plugin model	56	delete_carouselpluginmodel
+208	Can add carousel slide plugin model	56	add_carouselslidepluginmodel
+209	Can change carousel slide plugin model	56	change_carouselslidepluginmodel
+210	Can delete carousel slide plugin model	56	delete_carouselslidepluginmodel
+211	Can add panel group plugin model	56	add_panelgrouppluginmodel
+212	Can change panel group plugin model	56	change_panelgrouppluginmodel
+213	Can delete panel group plugin model	56	delete_panelgrouppluginmodel
+214	Can add panel plugin model	56	add_panelpluginmodel
+215	Can change panel plugin model	56	change_panelpluginmodel
+216	Can delete panel plugin model	56	delete_panelpluginmodel
+217	Can add bootstrap container plugin model	56	add_bootstrapcontainerpluginmodel
+218	Can change bootstrap container plugin model	56	change_bootstrapcontainerpluginmodel
+219	Can delete bootstrap container plugin model	56	delete_bootstrapcontainerpluginmodel
+220	Can add bootstrap row plugin model	56	add_bootstraprowpluginmodel
+221	Can change bootstrap row plugin model	56	change_bootstraprowpluginmodel
+222	Can delete bootstrap row plugin model	56	delete_bootstraprowpluginmodel
+223	Can add bootstrap column plugin model	56	add_bootstrapcolumnpluginmodel
+224	Can change bootstrap column plugin model	56	change_bootstrapcolumnpluginmodel
+225	Can delete bootstrap column plugin model	56	delete_bootstrapcolumnpluginmodel
+226	Can add simple wrapper plugin model	56	add_simplewrapperpluginmodel
+227	Can change simple wrapper plugin model	56	change_simplewrapperpluginmodel
+228	Can delete simple wrapper plugin model	56	delete_simplewrapperpluginmodel
+229	Can add horizontal rule plugin model	56	add_horizontalrulepluginmodel
+230	Can change horizontal rule plugin model	56	change_horizontalrulepluginmodel
+231	Can delete horizontal rule plugin model	56	delete_horizontalrulepluginmodel
+232	Can add text link plugin model	57	add_textlinkpluginmodel
+233	Can change text link plugin model	57	change_textlinkpluginmodel
+234	Can delete text link plugin model	57	delete_textlinkpluginmodel
 \.
 
 
@@ -2838,7 +3012,7 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('auth_permission_id_seq', 171, true);
+SELECT pg_catalog.setval('auth_permission_id_seq', 234, true);
 
 
 --
@@ -3223,6 +3397,52 @@ COPY cms_usersettings (id, language, clipboard_id, user_id) FROM stdin;
 --
 
 SELECT pg_catalog.setval('cms_usersettings_id_seq', 1, true);
+
+
+--
+-- Data for Name: cmsplugin_cascade_element; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cmsplugin_cascade_element (cmsplugin_ptr_id, glossary) FROM stdin;
+\.
+
+
+--
+-- Data for Name: cmsplugin_cascade_pluginextrafields; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cmsplugin_cascade_pluginextrafields (id, plugin_type, allow_id_tag, css_classes, inline_styles, site_id) FROM stdin;
+\.
+
+
+--
+-- Name: cmsplugin_cascade_pluginextrafields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('cmsplugin_cascade_pluginextrafields_id_seq', 1, false);
+
+
+--
+-- Data for Name: cmsplugin_cascade_sharableelement; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cmsplugin_cascade_sharableelement (cmsplugin_ptr_id, glossary, shared_glossary_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: cmsplugin_cascade_sharedglossary; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cmsplugin_cascade_sharedglossary (id, plugin_type, identifier, glossary) FROM stdin;
+\.
+
+
+--
+-- Name: cmsplugin_cascade_sharedglossary_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('cmsplugin_cascade_sharedglossary_id_seq', 1, false);
 
 
 --
@@ -6001,6 +6221,27 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 52	easy_thumbnails	thumbnail
 53	easy_thumbnails	thumbnaildimensions
 54	djangocms_picture	picture
+55	cmsplugin_cascade	sharedglossary
+56	cmsplugin_cascade	cascadeelement
+57	cmsplugin_cascade	sharablecascadeelement
+58	cmsplugin_cascade	pluginextrafields
+59	cmsplugin_cascade	segmentation
+60	cmsplugin_cascade	panelgrouppluginmodel
+61	cmsplugin_cascade	bootstrapcontainerpluginmodel
+62	cmsplugin_cascade	bootstrapimagepluginmodel
+63	cmsplugin_cascade	bootstrapbuttonpluginmodel
+64	cmsplugin_cascade	cascadepluginbasemodel
+65	cmsplugin_cascade	bootstrappluginbasemodel
+66	cmsplugin_cascade	textlinkpluginmodel
+67	cmsplugin_cascade	carouselslidepluginmodel
+68	cmsplugin_cascade	bootstrapcolumnpluginmodel
+69	cmsplugin_cascade	bootstrappicturepluginmodel
+70	cmsplugin_cascade	bootstraprowpluginmodel
+71	cmsplugin_cascade	linkpluginbasemodel
+72	cmsplugin_cascade	horizontalrulepluginmodel
+73	cmsplugin_cascade	carouselpluginmodel
+74	cmsplugin_cascade	panelpluginmodel
+75	cmsplugin_cascade	simplewrapperpluginmodel
 \.
 
 
@@ -6008,7 +6249,7 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('django_content_type_id_seq', 54, true);
+SELECT pg_catalog.setval('django_content_type_id_seq', 75, true);
 
 
 --
@@ -6070,6 +6311,8 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 52	filer	0001_initial	2015-06-28 21:07:09.527746+05:30
 53	filer	0002_auto_20150606_2003	2015-06-28 21:07:09.816533+05:30
 54	djangocms_picture	0001_initial	2015-06-30 01:12:52.026743+05:30
+55	cmsplugin_cascade	0001_initial	2015-06-30 11:59:12.680096+05:30
+56	cmsplugin_cascade	0002_auto_20150630_1156	2015-06-30 11:59:12.863623+05:30
 \.
 
 
@@ -6077,7 +6320,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('django_migrations_id_seq', 54, true);
+SELECT pg_catalog.setval('django_migrations_id_seq', 56, true);
 
 
 --
@@ -7641,6 +7884,62 @@ ALTER TABLE ONLY cms_usersettings
 
 
 --
+-- Name: cmsplugin_cascade_element_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_element
+    ADD CONSTRAINT cmsplugin_cascade_element_pkey PRIMARY KEY (cmsplugin_ptr_id);
+
+
+--
+-- Name: cmsplugin_cascade_pluginextra_plugin_type_6df1dfd8b842550e_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_pluginextrafields
+    ADD CONSTRAINT cmsplugin_cascade_pluginextra_plugin_type_6df1dfd8b842550e_uniq UNIQUE (plugin_type, site_id);
+
+
+--
+-- Name: cmsplugin_cascade_pluginextrafields_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_pluginextrafields
+    ADD CONSTRAINT cmsplugin_cascade_pluginextrafields_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cmsplugin_cascade_sharableelement_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_sharableelement
+    ADD CONSTRAINT cmsplugin_cascade_sharableelement_pkey PRIMARY KEY (cmsplugin_ptr_id);
+
+
+--
+-- Name: cmsplugin_cascade_sharedgloss_plugin_type_1c9e070a8b16b3bb_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_sharedglossary
+    ADD CONSTRAINT cmsplugin_cascade_sharedgloss_plugin_type_1c9e070a8b16b3bb_uniq UNIQUE (plugin_type, identifier);
+
+
+--
+-- Name: cmsplugin_cascade_sharedglossary_identifier_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_sharedglossary
+    ADD CONSTRAINT cmsplugin_cascade_sharedglossary_identifier_key UNIQUE (identifier);
+
+
+--
+-- Name: cmsplugin_cascade_sharedglossary_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_sharedglossary
+    ADD CONSTRAINT cmsplugin_cascade_sharedglossary_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: cmsplugin_zinnia_calendarentriesplugin_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -8638,6 +8937,55 @@ CREATE INDEX cms_usersettings_2655b062 ON cms_usersettings USING btree (clipboar
 
 
 --
+-- Name: cmsplugin_cascade_pluginextra_plugin_type_788202f55c43d89f_like; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX cmsplugin_cascade_pluginextra_plugin_type_788202f55c43d89f_like ON cmsplugin_cascade_pluginextrafields USING btree (plugin_type varchar_pattern_ops);
+
+
+--
+-- Name: cmsplugin_cascade_pluginextrafields_9365d6e7; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX cmsplugin_cascade_pluginextrafields_9365d6e7 ON cmsplugin_cascade_pluginextrafields USING btree (site_id);
+
+
+--
+-- Name: cmsplugin_cascade_pluginextrafields_b5e4cf8f; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX cmsplugin_cascade_pluginextrafields_b5e4cf8f ON cmsplugin_cascade_pluginextrafields USING btree (plugin_type);
+
+
+--
+-- Name: cmsplugin_cascade_sharableelement_c1aed49d; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX cmsplugin_cascade_sharableelement_c1aed49d ON cmsplugin_cascade_sharableelement USING btree (shared_glossary_id);
+
+
+--
+-- Name: cmsplugin_cascade_sharedgloss_plugin_type_2d6aabc3eb2b0cad_like; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX cmsplugin_cascade_sharedgloss_plugin_type_2d6aabc3eb2b0cad_like ON cmsplugin_cascade_sharedglossary USING btree (plugin_type varchar_pattern_ops);
+
+
+--
+-- Name: cmsplugin_cascade_sharedglossa_identifier_268fe6ab304a6b21_like; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX cmsplugin_cascade_sharedglossa_identifier_268fe6ab304a6b21_like ON cmsplugin_cascade_sharedglossary USING btree (identifier varchar_pattern_ops);
+
+
+--
+-- Name: cmsplugin_cascade_sharedglossary_b5e4cf8f; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX cmsplugin_cascade_sharedglossary_b5e4cf8f ON cmsplugin_cascade_sharedglossary USING btree (plugin_type);
+
+
+--
 -- Name: cmsplugin_zinnia_latestentriesplugin_authors_4f331e2f; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -9307,6 +9655,14 @@ ALTER TABLE ONLY filer_file
 
 
 --
+-- Name: a8d75df27c660c67d6cd6788ecfd9b05; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_sharableelement
+    ADD CONSTRAINT a8d75df27c660c67d6cd6788ecfd9b05 FOREIGN KEY (shared_glossary_id) REFERENCES cmsplugin_cascade_sharedglossary(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
 -- Name: ac_email_address_id_5bcf9f503c32d4d8_fk_account_emailaddress_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -9579,6 +9935,14 @@ ALTER TABLE ONLY cms_usersettings
 
 
 --
+-- Name: cmsplugin__cmsplugin_ptr_id_1625ccfdb767a51_fk_cms_cmsplugin_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_sharableelement
+    ADD CONSTRAINT cmsplugin__cmsplugin_ptr_id_1625ccfdb767a51_fk_cms_cmsplugin_id FOREIGN KEY (cmsplugin_ptr_id) REFERENCES cms_cmsplugin(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
 -- Name: cmsplugin__cmsplugin_ptr_id_e77cddeb14d3732_fk_cms_cmsplugin_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -9592,6 +9956,22 @@ ALTER TABLE ONLY cmsplugin_zinnia_calendarentriesplugin
 
 ALTER TABLE ONLY cmsplugin_zinnia_selectedentriesplugin
     ADD CONSTRAINT cmsplugin__cmsplugin_ptr_id_f972b7857de6a1f_fk_cms_cmsplugin_id FOREIGN KEY (cmsplugin_ptr_id) REFERENCES cms_cmsplugin(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: cmsplugin_cascade_pl_site_id_796fe616a46b87ba_fk_django_site_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_pluginextrafields
+    ADD CONSTRAINT cmsplugin_cascade_pl_site_id_796fe616a46b87ba_fk_django_site_id FOREIGN KEY (site_id) REFERENCES django_site(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: cmsplugin_cmsplugin_ptr_id_12aa654ce3b1c253_fk_cms_cmsplugin_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY cmsplugin_cascade_element
+    ADD CONSTRAINT cmsplugin_cmsplugin_ptr_id_12aa654ce3b1c253_fk_cms_cmsplugin_id FOREIGN KEY (cmsplugin_ptr_id) REFERENCES cms_cmsplugin(id) DEFERRABLE INITIALLY DEFERRED;
 
 
 --
