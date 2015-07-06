@@ -4,7 +4,7 @@ django<1.9
 # Configuration
 django-environ==0.3.0
 django-secure==1.0.1
-whitenoise==2.0
+whitenoise==2.0.2
 
 # Forms
 django-braces==1.8.0
@@ -15,11 +15,11 @@ django-floppyforms==1.4.1
 django-model-utils==2.2
 
 # Images
-Pillow==2.8.2
+Pillow==2.9.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.20.0
+django-allauth==0.21.0
 
 # For the persistence stores
 psycopg2==2.6.1
@@ -45,7 +45,7 @@ easy-thumbnails==2.2
 django-filer==0.9.11
 
 # Zinnia
-beautifulsoup4==4.3.2
+beautifulsoup4==4.4.0
 django-xmlrpc==0.1.5
 pyparsing==2.0.3
 django-tagging==0.4
@@ -58,7 +58,7 @@ html5lib==0.99999
 django-treebeard==3.0
 django-sekizai==0.8.2
 djangocms-admin-style==0.2.7
-django-cms==3.1.1
+django-cms==3.1.2
 
 # Third Party Django CMS Plug-ins
 djangocms-text-ckeditor==2.5.2
