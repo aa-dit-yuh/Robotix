@@ -37,33 +37,33 @@ a:hover {
 #intro .main-text h1 span{
   color: #e74c3c;
 }
-/* Services color */
-#services .service-box{
+/* initiatives color */
+#initiatives .service-box{
 	border: 1px solid #e74c3c;
 }
-#services .content{
+#initiatives .content{
 	background: #e74c3c;
 }
-#services .icon-wrapper i{
+#initiatives .icon-wrapper i{
 	color: #e74c3c;
 	border: 2px solid #e74c3c;
 }
-#services .service-box:hover i {
+#initiatives .service-box:hover i {
   background: #e74c3c;
 }
-/* Portfolio color */
-#portfolio .portfolio-items .item-description{
+/* team color */
+#team .team-items .item-description{
 	background: #e74c3c;
 	border-top: 3px solid #E13422;
 	border-bottom: 6px solid #D73626;
 }
-#portfolio .portfolio-items figure:hover h4,
-#portfolio .portfolio-items figure:hover p {
+#team .team-items figure:hover h4,
+#team .team-items figure:hover p {
   color: #e74c3c;
 }
 
-#portfolio .portfolio-items figure:hover a.link-left,
-#portfolio .portfolio-items figure:hover a.link-right  {
+#team .team-items figure:hover a.link-left,
+#team .team-items figure:hover a.link-right  {
   color: #e74c3c;
 }
 /* Blog color */
