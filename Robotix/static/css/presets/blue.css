@@ -37,33 +37,33 @@ a:hover {
 #intro .main-text h1 span{
   color: #3498db;
 }
-/* Services color */
-#services .service-box{
+/* initiatives color */
+#initiatives .service-box{
 	border: 1px solid #3498db;
 }
-#services .content{
+#initiatives .content{
 	background: #3498db;
 }
-#services .icon-wrapper i{
+#initiatives .icon-wrapper i{
 	color: #3498db;
 	border: 2px solid #3498db;
 }
-#services .service-box:hover i {
+#initiatives .service-box:hover i {
   background: #3498db;
 }
-/* Portfolio color */
-#portfolio .portfolio-items .item-description{
+/* team color */
+#team .team-items .item-description{
 	background: #3498db;
 	border-top: 3px solid #5EB4EF;
 	border-bottom: 6px solid #137BC0;
 }
-#portfolio .portfolio-items figure:hover h4,
-#portfolio .portfolio-items figure:hover p {
+#team .team-items figure:hover h4,
+#team .team-items figure:hover p {
   color: #3498db;
 }
 
-#portfolio .portfolio-items figure:hover a.link-left,
-#portfolio .portfolio-items figure:hover a.link-right  {
+#team .team-items figure:hover a.link-left,
+#team .team-items figure:hover a.link-right  {
   color: #3498db;
 }
 /* Blog color */
